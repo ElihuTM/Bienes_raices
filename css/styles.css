@@ -70,6 +70,7 @@ img{
 }
 
 .contenedor{
+    width: 95%;
     max-width: 120rem;
     margin: 0 auto;
 }
@@ -137,8 +138,16 @@ h6{
     text-align: center;
     border: none;
     border-radius: .5rem;
+    display: block;
+    flex: 0 0 100%;
 }
 
+@media(min-width: 768px) {
+    .boton {
+        display: inline-block;
+        flex: 0 0 auto;
+    }
+}
 .boton-amarillo{
     background-color: #E08709;
 }
@@ -166,6 +175,13 @@ h6{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    text-align: center;
+}
+
+@media(min-width: 768px) {
+    .contenido-header {
+        text-align: left;
+    }
 }
 
 .contenido-header h1{
@@ -175,59 +191,99 @@ h6{
     line-height: 2;
 }
 
-.barra{
-    display: flex;
-    justify-content: space-between;
+.barra {
     padding-top: 3rem;
-    align-items: center;
+}
+
+@media(min-width: 768px ) {
+    .barra{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 }
 
 /* Empieza la barra de links*/
 .navegacion a {
     color: white;
     text-decoration: none;
+    font-size: 2.2rem;
+    display: block;
+}
 
-    font-size: 1.8rem;
-    margin-right: 2rem;
+@media(min-width: 768px) {
+    .navegacion a {
+        display: inline-block;
+        margin-right: 2rem;
+        font-size: 1.8rem;
+    }
+
+    .navegacion a:last-of-type {
+        margin: 0;
+    }
 }
 
 .navegacion a:hover{
     color: #71B100;
 }
 
-.navegacion a:last-of-type {
-    margin: 0;
+/** mobile menu **/
+
+.mobile-menu img {
+    width: 5rem;
 }
 
+@media(min-width: 768px) {
+    .mobile-menu {
+        display: none;
+    }
+}
+
+.navegacion:target {
+    display: block;
+}
+
+.navegacion {
+    display: none;
+}
+
+@media(min-width: 768px ) {
+    .navegacion {
+        display: block;
+    }
+}
 /* iconos de la seccion "Nosotros" */
-.iconos-nosotros{
-    display: flex;
-    justify-content: space-between;
 
-}
-
-.icono{
-    flex-basis: calc( 33.3% - 1 rem );
+.icono {
     text-align: center;
 }
 
-.icono h3{
+.icono h3 {
     text-transform: uppercase;
+}
 
+@media(min-width: 768px ) {
+    .iconos-nosotros{
+        display: flex;
+        justify-content: space-between;
+    
+    }
+    
+    .icono{
+        flex-basis: calc( 33.3% - 1 rem );
+    }
 }
 
 /** Anuncios (Main) **/
-
-.contenedor-anuncios{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+@media(min-width: 768px) {
+    .contenedor-anuncios{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }   
 }
 
 .anuncio{
-    /*flex: grow shrink basis*/
-    flex: 0 0 calc( 33.3% - 1rem );
-    
     /*
     flex-grow: 1; si le permite crecer o no, si es posible
     flex-shrink: 0; si le permite hacerse pequeño, si es posible
@@ -240,6 +296,13 @@ h6{
     border: 1px solid #B5B5B5;
     background-color: #F5F5F5;
     margin-bottom: 2rem;
+}
+
+@media(min-width: 768px) {
+    .anuncio {
+        /*flex: grow shrink basis*/
+        flex: 0 0 calc( 33.3% - 1rem );
+    }
 }
 
 .contenido-anuncio{
@@ -290,7 +353,7 @@ h6{
 }
 
 .cotenido-contacto{
-    flex: 1; /* Divide el 100% en 1 */
+    flex: 0 0 95%; /* Divide el 100% en 1 */
     color: white;
 
 }
@@ -300,38 +363,42 @@ h6{
 }
 
 /**Seccion inferior**/
+@media(min-width: 768px ) {
+    .seccion-inferior {
+        display: flex;
+        justify-content: space-between;
+    }
 
-.seccion-inferior
-{
-    display: flex;
-    justify-content: space-between;
-}
+    .seccion-inferior .blog {
+        flex-basis: 60%;
+    }
 
-.seccion-inferior .blog{
-    flex-basis: 60%;
-}
-
-.seccion-inferior .testimoniales{
-    flex-basis: calc( 40% - 2rem);
+    .seccion-inferior .testimoniales {
+        flex-basis: calc( 40% - 2rem);
+    }
 }
 
 .entrada-blog{
-    display: flex;
-    justify-content: space-between;
     margin-bottom: 2rem;
 }
 
-.entrada-blog :last-of-type{
+.entrada-blog:last-of-type{
     margin-bottom: 0;
 }
 
-.entrada-blog .imagen {
-    flex-basis: 40%;
-}
-
-.entrada-blog .texto-entrada{
-    flex-basis: calc( 60% - 2rem);
-
+@media(min-width: 768px) {
+    .entrada-blog {
+        display: flex;
+        justify-content: space-between;
+    }
+    .entrada-blog .imagen {
+        flex-basis: 40%;
+    }
+    
+    .entrada-blog .texto-entrada{
+        flex-basis: calc( 60% - 2rem);
+    
+    }
 }
 
 .texto-entrada a {
@@ -393,10 +460,25 @@ h6{
 
 .contenedor-footer{
     padding: 3rem 0rem;
-    display: flex;
-    justify-content: space-between;
+    text-align: center;
 }
 
+@media(min-width: 768px ) {
+    .contenedor-footer {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.site-footer nav {
+    display: none;
+}
+
+@media(min-width: 768px ) {
+    .site-footer nav{
+        display: block;
+    }
+}
 .copyright{
     color: white;
     margin: 0;
@@ -404,14 +486,16 @@ h6{
 
 /** INTERNAS **/
 
-/* Nosotrso */
-.contenido-nosotros{
-    display: grid;
-    /* a cada columna le voy a asignar 1/n */
-    grid-template-columns: repeat(2,1fr);
-
-    /* dale espacio entre columnas*/
-    grid-column-gap: 2rem;
+/* Nosotros */
+@media(min-width: ) {
+    .contenido-nosotros{
+        display: grid;
+        /* a cada columna le voy a asignar 1/n */
+        grid-template-columns: repeat(2,1fr);
+    
+        /* dale espacio entre columnas*/
+        grid-column-gap: 2rem;
+    }
 }
 
 .texto-nosotros blockquote {
